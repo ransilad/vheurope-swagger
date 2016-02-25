@@ -73,7 +73,7 @@
                     "200": {
                         "description": "Successful response",
                         "schema": {
-                            "type": "object",
+                            "type": "array",
                             "items": {
                                 "$ref": "#/definitions/Data"
                             }

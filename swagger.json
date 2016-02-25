@@ -1,0 +1,440 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.0",
+        "title": "VHEurope API"
+    },
+    "paths": {
+        "/getSchedulesFromText": {
+            "get": {
+                "description": "Method that Obtains the schedules for a given origin and destiny city\n",
+                "parameters": [
+                    {
+                        "name": "origin",
+                        "in": "query",
+                        "description": "City of origin",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "destination",
+                        "in": "query",
+                        "description": "City of destination",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "departureDate",
+                        "in": "query",
+                        "description": "Departure Date",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "returnDate",
+                        "in": "query",
+                        "description": "Return Date",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "passengersNumber",
+                        "in": "query",
+                        "description": "Number of passengers",
+                        "required": true,
+                        "type": "number",
+                        "format": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/Data"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getSchedules": {
+            "get": {
+                "description": "Method that Obtains the schedules for a given origin and destiny city.\n",
+                "parameters": [
+                    {
+                        "name": "origin",
+                        "in": "query",
+                        "description": "City of origin",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "destination",
+                        "in": "query",
+                        "description": "City of destination",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "departureDate",
+                        "in": "query",
+                        "description": "Departure Date",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "returnDate",
+                        "in": "query",
+                        "description": "Return Date",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "passengersNumber",
+                        "in": "query",
+                        "description": "Number of passengers",
+                        "required": true,
+                        "type": "number",
+                        "format": "integer"
+                    },
+                    {
+                        "name": "routeID",
+                        "in": "query",
+                        "description": "from getSchedulesFromText",
+                        "required": true,
+                        "type": "number",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/Data"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getBusBooking": {
+            "post": {
+                "description": "Method that obtains the seat availability at the specified busses.\n",
+                "parameters": [
+                    {
+                        "name": "inputXML",
+                        "in": "query",
+                        "description": "xml con los horarios seleccionados en el paso anterior",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/BusBooking"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/reserveSeats": {
+            "post": {
+                "description": "Method that reserves the chosen seats at the specified busses\n",
+                "parameters": [
+                    {
+                        "name": "inputXML",
+                        "in": "query",
+                        "description": "xml con las plazas seleccionados en el paso anterior.",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/reserveSeats"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/endPurchaseWithMoveliaVPT": {
+            "post": {
+                "description": "Method to confirm the purchase request\n",
+                "parameters": [
+                    {
+                        "name": "inputXML",
+                        "in": "query",
+                        "description": "xml con los datos del viaje y los datos del pago realizado",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/payment"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/endPurchaseWithYourOwnPayment": {
+            "get": {
+                "description": "Method to confirm the purchase request\n",
+                "parameters": [
+                    {
+                        "name": "inputXML",
+                        "in": "query",
+                        "description": "xml con los datos del viaje (respuesta del ReserveSeats) realizado",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/payment"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/purchaseDataInPDF": {
+            "get": {
+                "description": "Print ticket in pdf format\n",
+                "parameters": [
+                    {
+                        "name": "purchaseID",
+                        "in": "query",
+                        "description": "Id de la compra a consultar/imprimir",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/pdf"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Data": {
+            "type": "object",
+            "properties": {
+                "viajesDirectos": {
+                    "type": "object",
+                    "properties": {
+                        "trip": {
+                            "type": "object",
+                            "properties": {
+                                "price": {
+                                    "type": "string"
+                                },
+                                "companyName": {
+                                    "type": "string"
+                                },
+                                "logo": {
+                                    "type": "string"
+                                },
+                                "origin": {
+                                    "type": "string"
+                                },
+                                "destination": {
+                                    "type": "string"
+                                },
+                                "salida": {
+                                    "type": "string"
+                                },
+                                "llegada": {
+                                    "type": "string"
+                                },
+                                "identifier": {
+                                    "type": "string"
+                                },
+                                "num": {
+                                    "type": "integer"
+                                },
+                                "typeService": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "viajesDirectosVuelta": {
+                    "type": "object",
+                    "properties": {
+                        "trip": {
+                            "type": "object",
+                            "properties": {
+                                "price": {
+                                    "type": "string"
+                                },
+                                "companyName": {
+                                    "type": "string"
+                                },
+                                "logo": {
+                                    "type": "string"
+                                },
+                                "origin": {
+                                    "type": "string"
+                                },
+                                "destination": {
+                                    "type": "string"
+                                },
+                                "salida": {
+                                    "type": "string"
+                                },
+                                "llegada": {
+                                    "type": "string"
+                                },
+                                "identifier": {
+                                    "type": "string"
+                                },
+                                "num": {
+                                    "type": "integer"
+                                },
+                                "typeService": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "viajesAlternos": {
+                    "type": "object",
+                    "properties": {
+                        "origin": {
+                            "type": "string"
+                        },
+                        "destination": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "fechaIda": {
+                    "type": "string"
+                },
+                "fechaVuelta": {
+                    "type": "string"
+                },
+                "totalPersons": {
+                    "type": "integer"
+                },
+                "scheduleID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "BusBooking": {
+            "type": "object",
+            "properties": {
+                "seatsIda": {
+                    "type": "string"
+                },
+                "seatsVuelta": {
+                    "type": "string"
+                },
+                "totalPersons": {
+                    "type": "integer"
+                },
+                "automaticPlazaIda": {
+                    "type": "boolean"
+                },
+                "automaticPlazaVuelta": {
+                    "type": "boolean"
+                },
+                "respID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "reserveSeats": {
+            "type": "object",
+            "properties": {
+                "reserveSeatsID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "payment": {
+            "type": "object",
+            "properties": {
+                "purchaseId": {
+                    "type": "string"
+                }
+            }
+        },
+        "pdf": {
+            "type": "object",
+            "properties": {
+                "reportNational": {
+                    "type": "string"
+                },
+                "reportInternational": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

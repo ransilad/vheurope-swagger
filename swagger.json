@@ -390,10 +390,32 @@
             "type": "object",
             "properties": {
                 "seatsIda": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer"
+                        },
+                        "status": {
+                            "type": "string"
+                        },
+                        "img": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "seatsVuelta": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer"
+                        },
+                        "status": {
+                            "type": "string"
+                        },
+                        "img": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "totalPersons": {
                     "type": "integer"

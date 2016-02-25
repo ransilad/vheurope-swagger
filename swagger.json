@@ -56,7 +56,7 @@
                         "name": "fechaVuelta",
                         "in": "query",
                         "description": "Return Date",
-                        "required": true,
+                        "required": false,
                         "type": "string",
                         "format": "string"
                     },
@@ -73,7 +73,7 @@
                     "200": {
                         "description": "Successful response",
                         "schema": {
-                            "type": "array",
+                            "type": "object",
                             "items": {
                                 "$ref": "#/definitions/Data"
                             }
@@ -324,57 +324,15 @@
                     }
                 },
                 "viajesDirectosVuelta": {
-                    "type": "object",
-                    "properties": {
-                        "trip": {
-                            "type": "object",
-                            "properties": {
-                                "price": {
-                                    "type": "string"
-                                },
-                                "companyName": {
-                                    "type": "string"
-                                },
-                                "logo": {
-                                    "type": "string"
-                                },
-                                "origin": {
-                                    "type": "string"
-                                },
-                                "destination": {
-                                    "type": "string"
-                                },
-                                "salida": {
-                                    "type": "string"
-                                },
-                                "llegada": {
-                                    "type": "string"
-                                },
-                                "identifier": {
-                                    "type": "string"
-                                },
-                                "num": {
-                                    "type": "integer"
-                                },
-                                "typeService": {
-                                    "type": "string"
-                                }
-                            }
-                        }
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Trip"
                     }
                 },
                 "viajesAlternos": {
-                    "type": "object",
-                    "properties": {
-                        "origin": {
-                            "type": "string"
-                        },
-                        "destination": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        }
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TripAlterno"
                     }
                 },
                 "fechaIda": {
@@ -422,6 +380,20 @@
                     "type": "integer"
                 },
                 "typeService": {
+                    "type": "string"
+                }
+            }
+        },
+        "TripAlterno": {
+            "type": "object",
+            "properties": {
+                "origin": {
+                    "type": "string"
+                },
+                "destination": {
+                    "type": "string"
+                },
+                "id": {
                     "type": "string"
                 }
             }

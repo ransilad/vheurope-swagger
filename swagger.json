@@ -6,15 +6,22 @@
         "title": "VHEurope API"
     },
     "host": "www.google.com",
-    "basePath": "/v1",
     "tags": [
         {
             "name": "trips",
             "description": "Busqueda de viajes"
+        },
+        {
+            "name": "seats",
+            "description": "Resultados de los asientos"
+        },
+        {
+            "name": "invoice",
+            "description": "Facturas"
         }
     ],
     "paths": {
-        "/trips": {
+        "/v1/trips": {
             "get": {
                 "tags": [
                     "trips"
@@ -77,8 +84,11 @@
                 }
             }
         },
-        "/tripsFromRoute": {
+        "/v1/tripsFromRoute": {
             "get": {
+                "tags": [
+                    "trips"
+                ],
                 "description": "Method that Obtains the schedules for a given origin and destiny city.\n",
                 "parameters": [
                     {
@@ -145,8 +155,11 @@
                 }
             }
         },
-        "/getBusBooking": {
+        "/v1/seats": {
             "post": {
+                "tags": [
+                    "seats"
+                ],
                 "description": "Method that obtains the seat availability at the specified busses.\n",
                 "parameters": [
                     {
@@ -173,8 +186,11 @@
                 }
             }
         },
-        "/reserveSeats": {
+        "/v1/reserves": {
             "post": {
+                "tags": [
+                    "seats"
+                ],
                 "description": "Method that reserves the chosen seats at the specified busses\n",
                 "parameters": [
                     {
@@ -201,8 +217,11 @@
                 }
             }
         },
-        "/endPurchaseWithMoveliaVPT": {
+        "/v1/purchasesMovelia": {
             "post": {
+                "tags": [
+                    "seats"
+                ],
                 "description": "Method to confirm the purchase request\n",
                 "parameters": [
                     {
@@ -229,8 +248,11 @@
                 }
             }
         },
-        "/endPurchaseWithYourOwnPayment": {
+        "/v1/purchasesExternal": {
             "get": {
+                "tags": [
+                    "seats"
+                ],
                 "description": "Method to confirm the purchase request\n",
                 "parameters": [
                     {
@@ -257,13 +279,16 @@
                 }
             }
         },
-        "/purchaseDataInPDF": {
+        "/v1/invoice/{purchaseID}": {
             "get": {
+                "tags": [
+                    "invoice"
+                ],
                 "description": "Print ticket in pdf format\n",
                 "parameters": [
                     {
                         "name": "purchaseID",
-                        "in": "query",
+                        "in": "path",
                         "description": "Id de la compra a consultar/imprimir",
                         "required": true,
                         "type": "string",
@@ -402,32 +427,10 @@
             "type": "object",
             "properties": {
                 "seatsIda": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "integer"
-                        },
-                        "status": {
-                            "type": "string"
-                        },
-                        "img": {
-                            "type": "string"
-                        }
-                    }
+                    "type": "string"
                 },
                 "seatsVuelta": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "integer"
-                        },
-                        "status": {
-                            "type": "string"
-                        },
-                        "img": {
-                            "type": "string"
-                        }
-                    }
+                    "type": "string"
                 },
                 "totalPersons": {
                     "type": "integer"

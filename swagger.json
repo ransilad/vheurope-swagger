@@ -160,7 +160,6 @@
                 ],
                 "description": "Method that obtains the seat availability at the specified busses.\n",
                 "produces": [
-                    "application/xml",
                     "application/json"
                 ],
                 "parameters": [
@@ -319,43 +318,9 @@
             "type": "object",
             "properties": {
                 "viajesDirectos": {
-                    "type": "object",
-                    "properties": {
-                        "trip": {
-                            "type": "object",
-                            "properties": {
-                                "price": {
-                                    "type": "string"
-                                },
-                                "companyName": {
-                                    "type": "string"
-                                },
-                                "logo": {
-                                    "type": "string"
-                                },
-                                "origin": {
-                                    "type": "string"
-                                },
-                                "destination": {
-                                    "type": "string"
-                                },
-                                "salida": {
-                                    "type": "string"
-                                },
-                                "llegada": {
-                                    "type": "string"
-                                },
-                                "identifier": {
-                                    "type": "string"
-                                },
-                                "num": {
-                                    "type": "integer"
-                                },
-                                "typeService": {
-                                    "type": "string"
-                                }
-                            }
-                        }
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Trip"
                     }
                 },
                 "viajesDirectosVuelta": {
@@ -423,6 +388,41 @@
                 },
                 "scheduleID": {
                     "type": "integer"
+                }
+            }
+        },
+        "Trip": {
+            "type": "object",
+            "properties": {
+                "price": {
+                    "type": "string"
+                },
+                "companyName": {
+                    "type": "string"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "origin": {
+                    "type": "string"
+                },
+                "destination": {
+                    "type": "string"
+                },
+                "salida": {
+                    "type": "string"
+                },
+                "llegada": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "num": {
+                    "type": "integer"
+                },
+                "typeService": {
+                    "type": "string"
                 }
             }
         },

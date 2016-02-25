@@ -114,7 +114,7 @@
                         "name": "fechaLlegada",
                         "in": "query",
                         "description": "Return Date",
-                        "required": true,
+                        "required": false,
                         "type": "string",
                         "format": "string"
                     },
@@ -139,12 +139,7 @@
                     "200": {
                         "description": "Successful response",
                         "schema": {
-                            "type": "object",
-                            "properties": {
-                                "data": {
-                                    "$ref": "#/definitions/Data"
-                                }
-                            }
+                            "$ref": "#/definitions/Data2"
                         }
                     }
                 }
@@ -174,12 +169,7 @@
                     "200": {
                         "description": "Successful response",
                         "schema": {
-                            "type": "object",
-                            "properties": {
-                                "data": {
-                                    "$ref": "#/definitions/BusBooking"
-                                }
-                            }
+                            "$ref": "#/definitions/BusBooking"
                         }
                     }
                 }
@@ -330,6 +320,35 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/TripAlterno"
+                    }
+                },
+                "fechaIda": {
+                    "type": "string"
+                },
+                "fechaVuelta": {
+                    "type": "string"
+                },
+                "totalPersons": {
+                    "type": "integer"
+                },
+                "scheduleID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Data2": {
+            "type": "object",
+            "properties": {
+                "viajesDirectos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Trip"
+                    }
+                },
+                "viajesDirectosVuelta": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Trip"
                     }
                 },
                 "fechaIda": {

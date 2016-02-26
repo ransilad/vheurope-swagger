@@ -75,6 +75,12 @@
                         "schema": {
                             "$ref": "#/definitions/Data"
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "503": {
+                        "description": "Service unavailable"
                     }
                 }
             }
@@ -141,6 +147,12 @@
                         "schema": {
                             "$ref": "#/definitions/Data2"
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "503": {
+                        "description": "Service unavailable"
                     }
                 }
             }
@@ -171,6 +183,12 @@
                         "schema": {
                             "$ref": "#/definitions/BusBooking"
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "503": {
+                        "description": "Service unavailable"
                     }
                 }
             }
@@ -202,6 +220,12 @@
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "503": {
+                        "description": "Service unavailable"
                     }
                 }
             }
@@ -233,6 +257,12 @@
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "503": {
+                        "description": "Service unavailable"
                     }
                 }
             }
@@ -264,6 +294,12 @@
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "503": {
+                        "description": "Service unavailable"
                     }
                 }
             }
@@ -295,6 +331,12 @@
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "503": {
+                        "description": "Service unavailable"
                     }
                 }
             }

@@ -18,6 +18,10 @@
         {
             "name": "invoice",
             "description": "Facturas"
+        },
+        {
+            "name": "locations",
+            "description": "Resultados de los locations"
         }
     ],
     "paths": {
@@ -340,6 +344,33 @@
                     }
                 }
             }
+        },
+        "/v1/locations": {
+            "get": {
+                "tags": [
+                    "locations"
+                ],
+                "description": "Get the locations from Spain\n",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "$ref": "#/definitions/locations"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "503": {
+                        "description": "Service unavailable"
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -535,6 +566,23 @@
                     "type": "integer",
                     "format": "int32",
                     "description": "User Status"
+                }
+            }
+        },
+        "locations": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
                 }
             }
         }

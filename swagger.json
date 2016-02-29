@@ -413,6 +413,12 @@
                     "items": {
                         "$ref": "#/definitions/companies"
                     }
+                },
+                "typeServices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/services"
+                    }
                 }
             }
         },
@@ -459,6 +465,12 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/companies"
+                    }
+                },
+                "typeServices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/services"
                     }
                 }
             }
@@ -618,6 +630,9 @@
             }
         },
         "companies": {
+            "type": "string"
+        },
+        "services": {
             "type": "string"
         }
     }

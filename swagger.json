@@ -395,6 +395,18 @@
                 },
                 "scheduleID": {
                     "type": "integer"
+                },
+                "origin": {
+                    "type": "string"
+                },
+                "originCountry": {
+                    "type": "string"
+                },
+                "destination": {
+                    "type": "string"
+                },
+                "destinationCountry": {
+                    "type": "string"
                 }
             }
         },
@@ -424,6 +436,18 @@
                 },
                 "scheduleID": {
                     "type": "integer"
+                },
+                "origin": {
+                    "type": "string"
+                },
+                "originCountry": {
+                    "type": "string"
+                },
+                "destination": {
+                    "type": "string"
+                },
+                "destinationCountry": {
+                    "type": "string"
                 }
             }
         },

@@ -355,19 +355,8 @@
                     "200": {
                         "description": "Successful response",
                         "schema": {
-                            "type": "object",
-                            "properties": {
-                                "data": {
-                                    "$ref": "#/definitions/locations"
-                                }
-                            }
+                            "$ref": "#/definitions/locations"
                         }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "503": {
-                        "description": "Service unavailable"
                     }
                 }
             }
@@ -435,6 +424,23 @@
                 },
                 "scheduleID": {
                     "type": "integer"
+                }
+            }
+        },
+        "locations": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
                 }
             }
         },
@@ -566,23 +572,6 @@
                     "type": "integer",
                     "format": "int32",
                     "description": "User Status"
-                }
-            }
-        },
-        "locations": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "label": {
-                    "type": "string"
                 }
             }
         }

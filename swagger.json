@@ -29,7 +29,7 @@
                 "description": "Method that Obtains the schedules for a given origin and destiny city\n",
                 "parameters": [
                     {
-                        "name": "salida",
+                        "name": "departure",
                         "in": "query",
                         "description": "City of origin",
                         "required": true,
@@ -37,7 +37,7 @@
                         "format": "string"
                     },
                     {
-                        "name": "destino",
+                        "name": "arrival",
                         "in": "query",
                         "description": "City of destination",
                         "required": true,
@@ -45,7 +45,7 @@
                         "format": "string"
                     },
                     {
-                        "name": "fechaIda",
+                        "name": "departureDate",
                         "in": "query",
                         "description": "Departure Date",
                         "required": true,
@@ -53,7 +53,7 @@
                         "format": "string"
                     },
                     {
-                        "name": "fechaVuelta",
+                        "name": "returnDate",
                         "in": "query",
                         "description": "Return Date",
                         "required": false,
@@ -61,7 +61,7 @@
                         "format": "string"
                     },
                     {
-                        "name": "personas",
+                        "name": "totalPeople",
                         "in": "query",
                         "description": "Number of passengers",
                         "required": true,
@@ -93,7 +93,7 @@
                 "description": "Method that Obtains the schedules for a given origin and destiny city.\n",
                 "parameters": [
                     {
-                        "name": "origen",
+                        "name": "departure",
                         "in": "query",
                         "description": "City of origin",
                         "required": true,
@@ -101,7 +101,7 @@
                         "format": "string"
                     },
                     {
-                        "name": "destino",
+                        "name": "arrival",
                         "in": "query",
                         "description": "City of destination",
                         "required": true,
@@ -109,7 +109,7 @@
                         "format": "string"
                     },
                     {
-                        "name": "fechaSalida",
+                        "name": "departureDate",
                         "in": "query",
                         "description": "Departure Date",
                         "required": true,
@@ -117,7 +117,7 @@
                         "format": "string"
                     },
                     {
-                        "name": "fechaLlegada",
+                        "name": "returnDate",
                         "in": "query",
                         "description": "Return Date",
                         "required": false,
@@ -346,31 +346,31 @@
         "Data": {
             "type": "object",
             "properties": {
-                "viajesDirectos": {
+                "directDepartureTrips": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/Trip"
                     }
                 },
-                "viajesDirectosVuelta": {
+                "directReturnTrips": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/Trip"
                     }
                 },
-                "viajesAlternos": {
+                "alternativeTrips": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/TripAlterno"
                     }
                 },
-                "fechaIda": {
+                "departureDate": {
                     "type": "string"
                 },
-                "fechaVuelta": {
+                "returnDate": {
                     "type": "string"
                 },
-                "totalPersons": {
+                "totalPeople": {
                     "type": "integer"
                 },
                 "scheduleID": {
@@ -381,25 +381,25 @@
         "Data2": {
             "type": "object",
             "properties": {
-                "viajesDirectos": {
+                "directDepartureTrips": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/Trip"
                     }
                 },
-                "viajesDirectosVuelta": {
+                "directReturnTrips": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/Trip"
                     }
                 },
-                "fechaIda": {
+                "departureDate": {
                     "type": "string"
                 },
-                "fechaVuelta": {
+                "returnDate": {
                     "type": "string"
                 },
-                "totalPersons": {
+                "totalPeople": {
                     "type": "integer"
                 },
                 "scheduleID": {
@@ -459,19 +459,19 @@
         "BusBooking": {
             "type": "object",
             "properties": {
-                "seatsIda": {
+                "departureSeats": {
                     "type": "string"
                 },
-                "seatsVuelta": {
+                "returnSeats": {
                     "type": "string"
                 },
-                "totalPersons": {
+                "totalPeople": {
                     "type": "integer"
                 },
-                "automaticPlazaIda": {
+                "automaticDepartureSeat": {
                     "type": "boolean"
                 },
-                "automaticPlazaVuelta": {
+                "automaticReturnSeat": {
                     "type": "boolean"
                 },
                 "respID": {

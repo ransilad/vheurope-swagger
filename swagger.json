@@ -355,7 +355,7 @@
                     "200": {
                         "description": "Successful response",
                         "schema": {
-                            "$ref": "#/definitions/locations"
+                            "$ref": "#/definitions/location2"
                         }
                     }
                 }
@@ -425,6 +425,12 @@
                 "scheduleID": {
                     "type": "integer"
                 }
+            }
+        },
+        "location2": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/locations"
             }
         },
         "locations": {

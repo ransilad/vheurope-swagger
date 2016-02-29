@@ -407,6 +407,12 @@
                 },
                 "destinationCountry": {
                     "type": "string"
+                },
+                "companies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/companies"
+                    }
                 }
             }
         },
@@ -448,6 +454,12 @@
                 },
                 "destinationCountry": {
                     "type": "string"
+                },
+                "companies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/companies"
+                    }
                 }
             }
         },
@@ -604,6 +616,9 @@
                     "description": "User Status"
                 }
             }
+        },
+        "companies": {
+            "type": "string"
         }
     }
 }

@@ -530,6 +530,9 @@
                 },
                 "typeService": {
                     "type": "string"
+                },
+                "duration": {
+                    "type": "string"
                 }
             }
         },

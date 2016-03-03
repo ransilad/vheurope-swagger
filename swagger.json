@@ -385,10 +385,10 @@
                     }
                 },
                 "departureDate": {
-                    "type": "string"
+                    "type": "integer"
                 },
                 "returnDate": {
-                    "type": "string"
+                    "type": "integer"
                 },
                 "totalPeople": {
                     "type": "integer"

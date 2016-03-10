@@ -685,7 +685,10 @@
         "reserveSeats": {
             "type": "object",
             "properties": {
-                "reserveSeatsID": {
+                "idIda": {
+                    "type": "integer"
+                },
+                "idVuelta": {
                     "type": "integer"
                 }
             }

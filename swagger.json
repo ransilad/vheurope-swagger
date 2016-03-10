@@ -419,6 +419,12 @@
                     "items": {
                         "$ref": "#/definitions/services"
                     }
+                },
+                "minPrice": {
+                    "type": "string"
+                },
+                "maxPrice": {
+                    "type": "string"
                 }
             }
         },
@@ -446,9 +452,6 @@
                 "totalPeople": {
                     "type": "integer"
                 },
-                "scheduleID": {
-                    "type": "integer"
-                },
                 "origin": {
                     "type": "string"
                 },
@@ -472,6 +475,12 @@
                     "items": {
                         "$ref": "#/definitions/services"
                     }
+                },
+                "minPrice": {
+                    "type": "string"
+                },
+                "maxPrice": {
+                    "type": "string"
                 }
             }
         },
@@ -501,6 +510,9 @@
         "Trip": {
             "type": "object",
             "properties": {
+                "id": {
+                    "type": "integer"
+                },
                 "price": {
                     "type": "string"
                 },
@@ -516,17 +528,11 @@
                 "destination": {
                     "type": "string"
                 },
-                "salida": {
+                "departure": {
                     "type": "string"
                 },
-                "llegada": {
+                "arrival": {
                     "type": "string"
-                },
-                "identifier": {
-                    "type": "string"
-                },
-                "num": {
-                    "type": "integer"
                 },
                 "typeService": {
                     "type": "string"
@@ -542,7 +548,19 @@
                 "origin": {
                     "type": "string"
                 },
+                "countryOrigin": {
+                    "type": "string"
+                },
+                "countryCodeOrigin": {
+                    "type": "string"
+                },
                 "destination": {
+                    "type": "string"
+                },
+                "countryDestination": {
+                    "type": "string"
+                },
+                "countryCodeDestination": {
                     "type": "string"
                 },
                 "id": {
@@ -553,25 +571,116 @@
         "BusBooking": {
             "type": "object",
             "properties": {
-                "departureSeats": {
-                    "type": "string"
-                },
-                "returnSeats": {
-                    "type": "string"
-                },
                 "totalPeople": {
                     "type": "integer"
                 },
-                "automaticDepartureSeat": {
-                    "type": "boolean"
+                "isRoundTrip": {
+                    "type": "string"
                 },
-                "automaticReturnSeat": {
-                    "type": "boolean"
+                "departure": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response"
+                    }
                 },
-                "respID": {
-                    "type": "integer"
+                "return": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/response"
+                    }
                 }
             }
+        },
+        "response": {
+            "type": "object",
+            "properties": {
+                "origin": {
+                    "type": "string"
+                },
+                "countryOrigin": {
+                    "type": "string"
+                },
+                "countryCodeOrigin": {
+                    "type": "string"
+                },
+                "destination": {
+                    "type": "string"
+                },
+                "countryDestination": {
+                    "type": "string"
+                },
+                "countryCodeDestination": {
+                    "type": "string"
+                },
+                "departureHour": {
+                    "type": "string"
+                },
+                "arrivalHour": {
+                    "type": "string"
+                },
+                "terminalOrigin": {
+                    "type": "string"
+                },
+                "terminalDestination": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "string"
+                },
+                "company": {
+                    "type": "string"
+                },
+                "companyLogo": {
+                    "type": "string"
+                },
+                "size": {
+                    "type": "integer"
+                },
+                "seatMap": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/mapSeats"
+                    }
+                },
+                "unavailableSeats": {
+                    "type": "string"
+                },
+                "automaticSeat": {
+                    "type": "string"
+                },
+                "tripIdFloorOne": {
+                    "type": "integer"
+                },
+                "tripIdFloorTwo": {
+                    "type": "integer"
+                },
+                "priceFloorOne": {
+                    "type": "string"
+                },
+                "priceFloorTwo": {
+                    "type": "string"
+                }
+            }
+        },
+        "mapSeats": {
+            "type": "object",
+            "properties": {
+                "piso1": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/seat"
+                    }
+                },
+                "piso2": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/seat"
+                    }
+                }
+            }
+        },
+        "seat": {
+            "type": "string"
         },
         "reserveSeats": {
             "type": "object",

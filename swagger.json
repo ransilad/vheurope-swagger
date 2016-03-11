@@ -234,7 +234,7 @@
                 }
             }
         },
-        "/v1/purchasesMovelia": {
+        "/v1/purchase": {
             "post": {
                 "tags": [
                     "seats"
@@ -696,7 +696,10 @@
         "payment": {
             "type": "object",
             "properties": {
-                "purchaseId": {
+                "idIda": {
+                    "type": "string"
+                },
+                "idVuelta": {
                     "type": "string"
                 }
             }

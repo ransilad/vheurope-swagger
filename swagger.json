@@ -33,12 +33,12 @@
                 "tags": [
                     "trips"
                 ],
-                "description": "Method that Obtains the schedules for a given origin and destiny city\n",
+                "description": "Método que obtiene los viajes disponibles a partir de los parámetros ingresados por el usuario\n",
                 "parameters": [
                     {
                         "name": "departure",
                         "in": "query",
-                        "description": "City of origin",
+                        "description": "Ciudad origen",
                         "required": true,
                         "type": "string",
                         "format": "string"
@@ -46,7 +46,7 @@
                     {
                         "name": "arrival",
                         "in": "query",
-                        "description": "City of destination",
+                        "description": "Ciudad destino",
                         "required": true,
                         "type": "string",
                         "format": "string"
@@ -54,7 +54,7 @@
                     {
                         "name": "departureDate",
                         "in": "query",
-                        "description": "Departure Date",
+                        "description": "Fecha de salida",
                         "required": true,
                         "type": "string",
                         "format": "string"
@@ -62,7 +62,7 @@
                     {
                         "name": "returnDate",
                         "in": "query",
-                        "description": "Return Date",
+                        "description": "Fecha de llegada",
                         "required": false,
                         "type": "string",
                         "format": "string"
@@ -70,7 +70,7 @@
                     {
                         "name": "totalPeople",
                         "in": "query",
-                        "description": "Number of passengers",
+                        "description": "Número de pasajeros",
                         "required": true,
                         "type": "number",
                         "format": "integer"
@@ -97,52 +97,12 @@
                 "tags": [
                     "trips"
                 ],
-                "description": "Method that Obtains the schedules for a given origin and destiny city.\n",
+                "description": "Método que obtiene los viajes disponibles a partir de un viaje alterno seleccionado por el usuario.\n",
                 "parameters": [
                     {
-                        "name": "departure",
+                        "name": "id",
                         "in": "query",
-                        "description": "City of origin",
-                        "required": true,
-                        "type": "string",
-                        "format": "string"
-                    },
-                    {
-                        "name": "arrival",
-                        "in": "query",
-                        "description": "City of destination",
-                        "required": true,
-                        "type": "string",
-                        "format": "string"
-                    },
-                    {
-                        "name": "departureDate",
-                        "in": "query",
-                        "description": "Departure Date",
-                        "required": true,
-                        "type": "string",
-                        "format": "string"
-                    },
-                    {
-                        "name": "returnDate",
-                        "in": "query",
-                        "description": "Return Date",
-                        "required": false,
-                        "type": "string",
-                        "format": "string"
-                    },
-                    {
-                        "name": "totalPersons",
-                        "in": "query",
-                        "description": "Number of passengers",
-                        "required": true,
-                        "type": "number",
-                        "format": "integer"
-                    },
-                    {
-                        "name": "routeID",
-                        "in": "query",
-                        "description": "from getSchedulesFromText",
+                        "description": "Identificador del viaje alterno",
                         "required": true,
                         "type": "number",
                         "format": "string"
@@ -396,9 +356,6 @@
                 "totalPeople": {
                     "type": "integer"
                 },
-                "scheduleID": {
-                    "type": "integer"
-                },
                 "origin": {
                     "type": "string"
                 },
@@ -428,6 +385,9 @@
                 },
                 "maxPrice": {
                     "type": "string"
+                },
+                "minDuration": {
+                    "type": "string"
                 }
             }
         },
@@ -447,10 +407,10 @@
                     }
                 },
                 "departureDate": {
-                    "type": "string"
+                    "type": "integer"
                 },
                 "returnDate": {
-                    "type": "string"
+                    "type": "integer"
                 },
                 "totalPeople": {
                     "type": "integer"
@@ -483,6 +443,9 @@
                     "type": "string"
                 },
                 "maxPrice": {
+                    "type": "string"
+                },
+                "minDuration": {
                     "type": "string"
                 }
             }
@@ -754,10 +717,26 @@
             }
         },
         "companies": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
         },
         "services": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
         }
     }
 }

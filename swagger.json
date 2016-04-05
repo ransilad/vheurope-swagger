@@ -5,8 +5,10 @@
         "version": "1.0.0",
         "title": "VHEurope API"
     },
+    "schemes": [
+        "http"
+    ],
     "host": "api.resertrip.com",
-    "schemes": "http",
     "tags": [
         {
             "name": "trips",

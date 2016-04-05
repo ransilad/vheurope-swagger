@@ -5,7 +5,7 @@
         "version": "1.0.0",
         "title": "VHEurope API"
     },
-    "host": "www.google.com",
+    "host": "api.resertrip.com",
     "tags": [
         {
             "name": "trips",
@@ -21,7 +21,7 @@
         },
         {
             "name": "locations",
-            "description": "Resultados de los locations"
+            "description": "Resultados de las localidades"
         }
     ],
     "paths": {
@@ -350,7 +350,7 @@
                 "tags": [
                     "locations"
                 ],
-                "description": "Get the locations from Spain\n",
+                "description": "Obtener las localidades para realizar la búsqueda de viajes\n",
                 "responses": {
                     "200": {
                         "description": "Successful response",
@@ -500,6 +500,9 @@
                     "type": "string"
                 },
                 "country": {
+                    "type": "string"
+                },
+                "countryCode": {
                     "type": "string"
                 },
                 "label": {

@@ -33,7 +33,7 @@
                 "tags": [
                     "trips"
                 ],
-                "description": "Método que obtiene los viajes disponibles a partir de los parámetros ingresados por el usuario\n",
+                "description": "Método que obtiene los viajes disponibles a partir de los parámetros ingresados por el usuario",
                 "parameters": [
                     {
                         "name": "departure",
@@ -97,7 +97,7 @@
                 "tags": [
                     "trips"
                 ],
-                "description": "Método que obtiene los viajes disponibles a partir de un viaje alterno seleccionado por el usuario.\n",
+                "description": "Método que obtiene los viajes disponibles a partir de un viaje alterno seleccionado por el usuario.",
                 "parameters": [
                     {
                         "name": "id",

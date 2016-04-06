@@ -1,9 +1,9 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Documentación para consultar los recursos que dispone la API de vheurope",
         "version": "1.0.0",
-        "title": "VHEurope API"
+        "title": "API de resertrip",
+        "description": "Documentación para consultar los recursos que dispone la API de vheurope"
     },
     "schemes": [
         "http"
@@ -33,10 +33,6 @@
         {
             "name": "purchase",
             "description": "Comprar el pasaje"
-        },
-        {
-            "name": "otros",
-            "description": "Por ordenar"
         }
     ],
     "paths": {

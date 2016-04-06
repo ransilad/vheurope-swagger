@@ -1296,7 +1296,7 @@
   cursor: pointer;
 }
 .swagger-section #header {
-  background-color: #89bf04;
+  background-color: #F8F8F8;
   padding: 14px;
 }
 .swagger-section #input_baseUrl {
@@ -1343,9 +1343,9 @@
   font-size: 1.5em;
   font-weight: bold;
   text-decoration: none;
-  background: transparent url(../images/logo_small.png) no-repeat left center;
+  /*background: transparent url(../images/logo_small.png) no-repeat left center;*/
   padding: 20px 0 20px 40px;
-  color: white;
+  color: #00ACEC;
 }
 .swagger-section #content_message {
   margin: 10px 15px;

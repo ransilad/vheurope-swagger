@@ -27,6 +27,10 @@
             "description": "Resultados de las localidades"
         },
         {
+            "name": "reserves",
+            "description": "Reservar asientos"
+        },
+        {
             "name": "otros",
             "description": "Por ordenar"
         }
@@ -167,17 +171,18 @@
         "/v1/reserves": {
             "post": {
                 "tags": [
-                    "otros"
+                    "reserves"
                 ],
-                "description": "Method that reserves the chosen seats at the specified busses\n",
+                "description": "Método que reserva los asientos seleccionados por el usuario para el viaje respectivo\n",
                 "parameters": [
                     {
-                        "name": "inputXML",
-                        "in": "query",
-                        "description": "xml con las plazas seleccionados en el paso anterior.",
+                        "in": "body",
+                        "name": "inputReserves",
+                        "description": "JSON con los datos para proceder a reservar el asiento",
                         "required": true,
-                        "type": "string",
-                        "format": "string"
+                        "schema": {
+                            "$ref": "#/definitions/inputReserves"
+                        }
                     }
                 ],
                 "responses": {
@@ -658,11 +663,55 @@
         "reserveSeats": {
             "type": "object",
             "properties": {
+                "departure": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/infoForPayment"
+                    }
+                },
+                "return": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/infoForPayment"
+                    }
+                },
                 "idIda": {
-                    "type": "integer"
+                    "type": "string"
                 },
                 "idVuelta": {
+                    "type": "string"
+                },
+                "totalFee": {
                     "type": "integer"
+                },
+                "totalPayment": {
+                    "type": "integer"
+                },
+                "totalPrice": {
+                    "type": "integer"
+                }
+            }
+        },
+        "infoForPayment": {
+            "type": "object",
+            "properties": {
+                "origin": {
+                    "type": "string"
+                },
+                "destination": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "company": {
+                    "type": "string"
+                },
+                "typeService": {
+                    "type": "string"
                 }
             }
         },
@@ -717,6 +766,49 @@
                     "type": "integer"
                 },
                 "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "inputReserves": {
+            "type": "object",
+            "properties": {
+                "idIda": {
+                    "type": "string"
+                },
+                "idVuelta": {
+                    "type": "string"
+                },
+                "passengers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/passengers"
+                    }
+                },
+                "seatsIda": {
+                    "type": "string"
+                },
+                "seatsVuelta": {
+                    "type": "string"
+                }
+            }
+        },
+        "passengers": {
+            "type": "object",
+            "properties": {
+                "documentId": {
+                    "type": "string"
+                },
+                "documentType": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "surname": {
                     "type": "string"
                 }
             }

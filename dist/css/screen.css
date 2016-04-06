@@ -1300,7 +1300,7 @@
   padding: 14px;
 }
 .swagger-section #input_baseUrl {
-  width: 400px;
+  width: 645px;
 }
 .swagger-section #api_selector {
   display: block;
@@ -1328,7 +1328,7 @@
   padding: 6px 8px;
   font-size: 0.9em;
   color: white;
-  background-color: #547f00;
+  background-color: #F3424C;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   -o-border-radius: 4px;
@@ -1337,14 +1337,12 @@
   border-radius: 4px;
 }
 .swagger-section #explore:hover {
-  background-color: #547f00;
+  background-color: #449d44;
 }
 .swagger-section #header #logo {
-  font-size: 1.5em;
   font-weight: bold;
   text-decoration: none;
-  /*background: transparent url(../images/logo_small.png) no-repeat left center;*/
-  padding: 20px 0 20px 40px;
+  padding: 0px 0 0px 40px;
   color: #00ACEC;
 }
 .swagger-section #content_message {

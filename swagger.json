@@ -189,12 +189,7 @@
                     "200": {
                         "description": "Successful response",
                         "schema": {
-                            "type": "object",
-                            "properties": {
-                                "data": {
-                                    "$ref": "#/definitions/reserveSeats"
-                                }
-                            }
+                            "$ref": "#/definitions/reserveSeats"
                         }
                     },
                     "400": {

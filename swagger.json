@@ -31,6 +31,10 @@
             "description": "Reservar asientos"
         },
         {
+            "name": "purchase",
+            "description": "Comprar el pasaje"
+        },
+        {
             "name": "otros",
             "description": "Por ordenar"
         }
@@ -204,66 +208,25 @@
         "/v1/purchase": {
             "post": {
                 "tags": [
-                    "otros"
+                    "purchase"
                 ],
-                "description": "Method to confirm the purchase request\n",
+                "description": "Método para realizar la compra del pasaje\n",
                 "parameters": [
                     {
-                        "name": "inputXML",
-                        "in": "query",
-                        "description": "xml con los datos del viaje y los datos del pago realizado",
+                        "in": "body",
+                        "name": "inputPurchase",
+                        "description": "JSON con los datos para proceder con la compra del pasaje",
                         "required": true,
-                        "type": "string",
-                        "format": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
                         "schema": {
-                            "type": "object",
-                            "properties": {
-                                "data": {
-                                    "$ref": "#/definitions/payment"
-                                }
-                            }
+                            "$ref": "#/definitions/inputPurchase"
                         }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "503": {
-                        "description": "Service unavailable"
-                    }
-                }
-            }
-        },
-        "/v1/purchasesExternal": {
-            "get": {
-                "tags": [
-                    "otros"
-                ],
-                "description": "Method to confirm the purchase request\n",
-                "parameters": [
-                    {
-                        "name": "inputXML",
-                        "in": "query",
-                        "description": "xml con los datos del viaje (respuesta del ReserveSeats) realizado",
-                        "required": true,
-                        "type": "string",
-                        "format": "string"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "Successful response",
                         "schema": {
-                            "type": "object",
-                            "properties": {
-                                "data": {
-                                    "$ref": "#/definitions/payment"
-                                }
-                            }
+                            "$ref": "#/definitions/purchase"
                         }
                     },
                     "400": {
@@ -710,17 +673,6 @@
                 }
             }
         },
-        "payment": {
-            "type": "object",
-            "properties": {
-                "idIda": {
-                    "type": "string"
-                },
-                "idVuelta": {
-                    "type": "string"
-                }
-            }
-        },
         "pdf": {
             "type": "object",
             "properties": {
@@ -805,6 +757,149 @@
                 },
                 "surname": {
                     "type": "string"
+                }
+            }
+        },
+        "inputPurchase": {
+            "type": "object",
+            "properties": {
+                "idIda": {
+                    "type": "string"
+                },
+                "idVuelta": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "surname": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "dni": {
+                    "type": "string"
+                },
+                "card": {
+                    "type": "string"
+                },
+                "cvv": {
+                    "type": "string"
+                },
+                "expirationDate": {
+                    "type": "string"
+                }
+            }
+        },
+        "purchase": {
+            "type": "object",
+            "properties": {
+                "departureData": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/infoForSuccess"
+                    }
+                },
+                "returnData": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/infoForSuccess"
+                    }
+                },
+                "customer": {
+                    "type": "string"
+                },
+                "customerEmail": {
+                    "type": "string"
+                },
+                "providerName": {
+                    "type": "string"
+                },
+                "purchaseId": {
+                    "type": "string"
+                },
+                "total": {
+                    "type": "integer"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "infoForSuccess": {
+            "type": "object",
+            "properties": {
+                "arrivalDate": {
+                    "type": "string"
+                },
+                "arrivalTime": {
+                    "type": "string"
+                },
+                "companyLogo": {
+                    "type": "string"
+                },
+                "companyName": {
+                    "type": "string"
+                },
+                "departureDate": {
+                    "type": "string"
+                },
+                "departureTime": {
+                    "type": "string"
+                },
+                "destination": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "numTrip": {
+                    "type": "integer"
+                },
+                "origin": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "integer"
+                },
+                "terminalDestination": {
+                    "type": "string"
+                },
+                "terminalOrigin": {
+                    "type": "string"
+                },
+                "typeService": {
+                    "type": "string"
+                },
+                "seats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/seats"
+                    }
+                }
+            }
+        },
+        "seats": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "dni": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "seatNumber": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "integer"
                 }
             }
         }

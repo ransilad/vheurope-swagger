@@ -25,6 +25,10 @@
         {
             "name": "locations",
             "description": "Resultados de las localidades"
+        },
+        {
+            "name": "otros",
+            "description": "Por ordenar"
         }
     ],
     "paths": {
@@ -163,7 +167,7 @@
         "/v1/reserves": {
             "post": {
                 "tags": [
-                    "seats"
+                    "otros"
                 ],
                 "description": "Method that reserves the chosen seats at the specified busses\n",
                 "parameters": [
@@ -200,7 +204,7 @@
         "/v1/purchase": {
             "post": {
                 "tags": [
-                    "seats"
+                    "otros"
                 ],
                 "description": "Method to confirm the purchase request\n",
                 "parameters": [
@@ -237,7 +241,7 @@
         "/v1/purchasesExternal": {
             "get": {
                 "tags": [
-                    "seats"
+                    "otros"
                 ],
                 "description": "Method to confirm the purchase request\n",
                 "parameters": [

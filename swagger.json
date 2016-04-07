@@ -234,7 +234,7 @@
                 }
             }
         },
-        "/v1/invoice/{purchaseID}": {
+        "/v1/invoice/{id}": {
             "get": {
                 "tags": [
                     "invoice"

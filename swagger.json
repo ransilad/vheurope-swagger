@@ -3,7 +3,7 @@
     "info": {
         "version": "1.0.0",
         "title": "API de resertrip",
-        "description": "Documentación para consultar los recursos que dispone la API de vheurope"
+        "description": "Documentación para consultar los recursos que dispone la API de resertrip.\n\nPara las pruebas realizadas en está documentación, se apuntará a la api de sandbox: `http:\\\\sandbox.api.resertrip.com`\n"
     },
     "schemes": [
         "http"

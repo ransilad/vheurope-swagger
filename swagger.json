@@ -263,7 +263,7 @@
             }
         },
         "/v1/cancelTrip/{uuid}": {
-            "get": {
+            "post": {
                 "tags": [
                     "trips"
                 ],

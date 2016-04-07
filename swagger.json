@@ -239,10 +239,10 @@
                 "tags": [
                     "invoice"
                 ],
-                "description": "Print ticket in pdf format\n",
+                "description": "Imprimir el pasaje en formato PDF\n",
                 "parameters": [
                     {
-                        "name": "purchaseID",
+                        "name": "id",
                         "in": "path",
                         "description": "Id de la compra a consultar/imprimir",
                         "required": true,
@@ -254,12 +254,7 @@
                     "200": {
                         "description": "Successful response",
                         "schema": {
-                            "type": "object",
-                            "properties": {
-                                "data": {
-                                    "$ref": "#/definitions/pdf"
-                                }
-                            }
+                            "type": "file"
                         }
                     },
                     "400": {
@@ -665,17 +660,6 @@
                     "type": "string"
                 },
                 "typeService": {
-                    "type": "string"
-                }
-            }
-        },
-        "pdf": {
-            "type": "object",
-            "properties": {
-                "reportNational": {
-                    "type": "string"
-                },
-                "reportInternational": {
                     "type": "string"
                 }
             }

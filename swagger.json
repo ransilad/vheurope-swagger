@@ -19,10 +19,6 @@
             "description": "Resultados de los asientos"
         },
         {
-            "name": "invoice",
-            "description": "Facturas"
-        },
-        {
             "name": "locations",
             "description": "Resultados de las localidades"
         },
@@ -237,7 +233,7 @@
         "/v1/invoice/{id}": {
             "get": {
                 "tags": [
-                    "invoice"
+                    "trips"
                 ],
                 "description": "Imprimir el pasaje en formato PDF\n",
                 "parameters": [
@@ -259,6 +255,35 @@
                     },
                     "400": {
                         "description": "Bad Request"
+                    },
+                    "503": {
+                        "description": "Service unavailable"
+                    }
+                }
+            }
+        },
+        "/v1/cancelTrip/{uuid}": {
+            "get": {
+                "tags": [
+                    "trips"
+                ],
+                "description": "Método para anular una compra de un pasaje\n",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "uuid de la compra a aunlar",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    },
+                    "404": {
+                        "description": "Not found"
                     },
                     "503": {
                         "description": "Service unavailable"

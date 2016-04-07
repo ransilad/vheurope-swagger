@@ -8,7 +8,7 @@
     "schemes": [
         "http"
     ],
-    "host": "api.resertrip.com",
+    "host": "sandbox.api.resertrip.com",
     "tags": [
         {
             "name": "trips",

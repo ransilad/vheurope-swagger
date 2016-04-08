@@ -491,6 +491,9 @@
                 },
                 "duration": {
                     "type": "string"
+                },
+                "durationMinutes": {
+                    "type": "string"
                 }
             }
         },

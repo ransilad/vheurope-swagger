@@ -29,6 +29,10 @@
         {
             "name": "purchase",
             "description": "Comprar el pasaje"
+        },
+        {
+            "name": "paymentOrder",
+            "description": "Información sobre la compra"
         }
     ],
     "paths": {
@@ -303,6 +307,35 @@
                         "schema": {
                             "$ref": "#/definitions/location2"
                         }
+                    }
+                }
+            }
+        },
+        "/v1/paymentOrder/{uuid}": {
+            "get": {
+                "tags": [
+                    "paymentOrder"
+                ],
+                "description": "Método para consultar la información de una compra realizada\n",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "uuid de la compra a consultar",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/paymentOrderResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
             }
@@ -908,6 +941,41 @@
                 },
                 "price": {
                     "type": "integer"
+                }
+            }
+        },
+        "paymentOrderResponse": {
+            "type": "object",
+            "properties": {
+                "customer": {
+                    "type": "string"
+                },
+                "customerEmail": {
+                    "type": "string"
+                },
+                "paymentOrderUuid": {
+                    "type": "string"
+                },
+                "paymentOrderStatus": {
+                    "type": "string"
+                },
+                "total": {
+                    "type": "integer"
+                },
+                "providerName": {
+                    "type": "string"
+                },
+                "departureData": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/infoForSuccess"
+                    }
+                },
+                "returnData": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/infoForSuccess"
+                    }
                 }
             }
         }
